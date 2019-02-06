@@ -1,0 +1,12 @@
+trigger AMEX_OpportunityTrigger on Opportunity (after update) {
+    
+    // Check events and call the handler class
+    // Similary we should be having checks for all events (before,after etc) in this class
+    
+    if(trigger.isAfter){
+        if(trigger.isUpdate){
+            OpportunityTriggerHandler.afterUpdate(trigger.New,trigger.oldMap);  
+        }
+    }
+    
+}
